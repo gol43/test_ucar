@@ -64,7 +64,7 @@ alembic upgrade head
 
 5. **Особенность проверки обработчиков**
 
-Примеры запросов, для создания записи об инциденте
+--Примеры запросов, для создания записи об инциденте
 
 ```bash
 - curl -X 'POST' \
@@ -105,6 +105,23 @@ alembic upgrade head
 '
 ```
 
+-- Пример запроса получения всех записей
+```bash
+-curl -X 'GET' \
+  'http://127.0.0.1:8000/api/v1/incedents/get_all_incedents/' \
+  -H 'accept: application/json'
+```
+
+-- Пример изменения статуса у конкретной записи
+```bash
+- curl -X 'PATCH' \
+  'http://127.0.0.1:8000/api/v1/incedents/update_status/2' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "status": "resolved"
+}'
+```
 
 --- 
 
